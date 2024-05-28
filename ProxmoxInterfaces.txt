@@ -1,0 +1,111 @@
+# ISP to RTR ---------------------
+auto vmbr20
+iface vmbr20 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#ISP-HQ-RTR
+
+auto vmbr21
+iface vmbr21 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#ISP-BR-RTR
+
+auto vmbr22
+iface vmbr22 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#ISP-DC-RTR
+
+# RTR to SW ---------------------
+
+auto vmbr23
+iface vmbr23 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#HQ-RTR-HQ-SW1
+
+auto vmbr24
+iface vmbr24 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#BR-RTR-BR-SW1
+
+auto vmbr25
+iface vmbr25 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#DC-RTR-DC-SW1
+
+# SW1 to SW2 ---------------------
+
+auto vmbr26
+iface vmbr26 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#BR-SW1-BR-SW2-1
+
+auto vmbr27
+iface vmbr27 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#BR-SW1-BR-SW2-2
+
+# SW to DEVICES ---------------------
+
+auto vmbr28
+iface vmbr28 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#HQ-SW1-HQ-SRV1
+
+auto vmbr29
+iface vmbr29 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#HQ-SW1-HQ-SRV2
+
+auto vmbr30
+iface vmbr30 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#HQ-SW1-HQ-CLI
+
+auto vmbr31
+iface vmbr31 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#BR-SW1-BR-SRV
+
+auto vmbr32
+iface vmbr32 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#BR-SW2-BR-CLI
+
+auto vmbr33
+iface vmbr33 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#DC-SW1-DC-SRV1
+
+auto vmbr34
+iface vmbr34 inet manual
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+#DC-SW1-DC-SRV2
