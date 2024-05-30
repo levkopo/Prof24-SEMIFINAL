@@ -78,13 +78,13 @@ qm importdisk 210 BR-SRV-disk001.vmdk $STORAGE --format qcow2
 qm set 210 -ide0 $STORAGE:vm-210-disk-0 --boot order=ide0
 echo "BR-SRV is done!!!"
 
-curl -L $( exit ) -o DC-SRV1-disk001.vmdk
+megatools dl "https://mega.nz/file/5W9TWAAL#5P8zB8QQlmGU9vPqBumG_siEDdj4ZE9U_UGCrGksTt4" --path=./DC-SRV1-disk001.vmdk
 qm create 211 --name "DC-SRV1" --cores 2 --memory 2048 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr33
 qm importdisk 211 DC-SRV1-disk001.vmdk $STORAGE --format qcow2
 qm set 211 -ide0 $STORAGE:vm-211-disk-0 --boot order=ide0
 echo "DC-SRV1 is done!!!"
 
-curl -L $( exit ) -o DC-SRV2-disk001.vmdk
+megatools dl "https://mega.nz/file/5W9TWAAL#5P8zB8QQlmGU9vPqBumG_siEDdj4ZE9U_UGCrGksTt4" --path=./DC-SRV2-disk001.vmdk
 qm create 212 --name "DC-SRV2" --cores 2 --memory 2048 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr34
 qm importdisk 212 DC-SRV2-disk001.vmdk $STORAGE --format qcow2
 qm set 212 -ide0 $STORAGE:vm-212-disk-0 --boot order=ide0
