@@ -1,14 +1,14 @@
 #!/bin/bash
 cat ./ProxmoxInterfaces.txt >> /etc/network/interfaces;
 systemctl restart networking;
-apt-get install python3-pip python3-venv -y;
+apt-get install python3-pip python3-venv megatools -y;
 python3 -m venv myenv;
 source myenv/bin/activate;
 pip3 install wldhx.yadisk-direct;
 read -p "Введите имя вашего локального хранилища: " STORAGE
 
 # ISP ----------------------------
-curl -L $( exit ) -o ISP-disk001.vmdk
+megatools dl "https://mega.nz/file/9b1QWLYA#VxN5AAuY4uGxN_jcUlpAlqm7Zw-BBZgafJz9gF8ahmY" --path=./ISP-disk001.vmdk
 qm create 200 --name "ISP" --cores 1 --memory 1024 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr0 --net1 virtio,bridge=vmbr20 --net2 virtio,bridge=vmbr21 --net3 virtio,bridge=vmbr22
 qm importdisk 200 ISP-disk001.vmdk $STORAGE --format qcow2 
 qm set 200 -ide0 $STORAGE:vm-200-disk-0 --boot order=ide0
