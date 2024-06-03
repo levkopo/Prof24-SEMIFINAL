@@ -48,7 +48,7 @@ qm set 205 -ide0 $STORAGE:vm-205-disk-0 --boot order=ide0
 echo "BR-SW1 is done!!!"
 
 curl -L $(yadisk-direct https://disk.yandex.ru/d/eeydoZIZbWG9Iw) -o BR-SW2-disk001.vmdk
-qm create 206 --name "BR-SWSW22" --cores 1 --memory 1024 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr26 --net1 virtio,bridge=vmbr27 --net2 virtio,bridge=vmbr32
+qm create 206 --name "BR-SW2" --cores 1 --memory 1024 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr26 --net1 virtio,bridge=vmbr27 --net2 virtio,bridge=vmbr32
 qm importdisk 206 BR-SW1-disk001.vmdk $STORAGE --format qcow2
 qm set 206 -ide0 $STORAGE:vm-206-disk-0 --boot order=ide0
 echo "BR-SW2 is done!!!"
