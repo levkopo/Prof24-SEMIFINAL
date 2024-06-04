@@ -11,7 +11,7 @@ read -p "Введите имя вашего локального хранили�
 megatools dl "https://mega.nz/file/9b1QWLYA#VxN5AAuY4uGxN_jcUlpAlqm7Zw-BBZgafJz9gF8ahmY" --path=./ISP-disk001.vmdk
 qm create 200 --name "ISP" --cores 1 --memory 1024 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr0 --net1 virtio,bridge=vmbr20 --net2 virtio,bridge=vmbr21 --net3 virtio,bridge=vmbr22
 qm importdisk 200 ISP-disk001.vmdk $STORAGE --format qcow2 
-qm set 200 -ide0 $STORAGE:vm-200-disk-0 --boot order=ide0
+qm set 200 -sata0 $STORAGE:vm-200-disk-0 --boot order=sata0
 echo "ISP is done!!!"
 
 
@@ -81,13 +81,13 @@ echo "BR-SRV is done!!!"
 megatools dl "https://mega.nz/file/5W9TWAAL#5P8zB8QQlmGU9vPqBumG_siEDdj4ZE9U_UGCrGksTt4" --path=./DC-SRV1-disk001.vmdk
 qm create 211 --name "DC-SRV1" --cores 2 --memory 2048 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr33
 qm importdisk 211 DC-SRV1-disk001.vmdk $STORAGE --format qcow2
-qm set 211 -ide0 $STORAGE:vm-211-disk-0 --boot order=ide0
+qm set 211 -sata0 $STORAGE:vm-211-disk-0 --boot order=sata0
 echo "DC-SRV1 is done!!!"
 
 megatools dl "https://mega.nz/file/5W9TWAAL#5P8zB8QQlmGU9vPqBumG_siEDdj4ZE9U_UGCrGksTt4" --path=./DC-SRV2-disk001.vmdk
 qm create 212 --name "DC-SRV2" --cores 2 --memory 2048 --ostype l26 --scsihw virtio-scsi-single  --net0 virtio,bridge=vmbr34
 qm importdisk 212 DC-SRV2-disk001.vmdk $STORAGE --format qcow2
-qm set 212 -ide0 $STORAGE:vm-212-disk-0 --boot order=ide0
+qm set 212 -sata0 $STORAGE:vm-212-disk-0 --boot order=sata0
 echo "DC-SRV2 is done!!!"
 
 # CLIENTS ----------------------------
